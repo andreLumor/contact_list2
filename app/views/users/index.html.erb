@@ -4,11 +4,20 @@
 
 <div id="users">
   <% @users.each do |user| %>
+    <div id="<%= user.id%>">
     <%= render user %>
     <p>
-      <%= link_to "Show this user", user %>
+      <%= link_to "Show contacts", user_contacts_path(user) %>
     </p>
+    <p>
+    <%= link_to "Edit this user", edit_user_path(user)%>
+    </p>
+    <p>
+    <%= link_to "Destroy this user", user, method: :delete, remote: true%>
+    </p>
+    </div>
   <% end %>
 </div>
-
+<br>
 <%= link_to "New user", new_user_path %>
+

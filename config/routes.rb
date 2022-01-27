@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :phones
-  resources :contacts
-  resources :users
+  resources :users do
+    resources :contacts do
+      resources :phones
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
