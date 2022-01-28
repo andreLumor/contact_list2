@@ -12,11 +12,13 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
+    @link = user_contacts_path(params['user_id'])
     @contact = Contact.new
   end
 
   # GET /contacts/1/edit
   def edit
+    @link = user_contact_path(params['user_id'])
   end
 
   # POST /contacts or /contacts.json
