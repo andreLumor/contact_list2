@@ -10,18 +10,24 @@
       </ul>
     </div>
   <% end %>
-
+  <%= form.hidden_field :user_id,:value=>params['user_id'] %>
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
-  </div>
+  </div> 
 
   <div>
     <%= form.label :born_date, style: "display: block" %>
     <%= form.date_field :born_date %>
   </div>
-
-  <%= form.hidden_field :user_id,:value=>params['user_id'] %>
+  <div class=”fields”>
+    <%= form.fields_for :phones do |builder| %>
+      <%= render "phone_fields", f: builder %>
+    <% end %>
+    <p><%= link_to_add_fields "Add Phone", form, :phones %></p>
+  </div>
+  <div>
+  </div>
   <div>
     <%= form.submit %>
   </div>

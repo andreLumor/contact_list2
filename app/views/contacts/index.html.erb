@@ -6,7 +6,7 @@
     <div id="<%= contact.id%>">
       <%= render contact %>
       <p>
-        <%= link_to "Show this contact", user_contact_phones_path(params['user_id'], contact) %>
+        <%= link_to "Show this contact", user_contact_path(params['user_id'], contact) %>
       </p>
       <p>
       <%= link_to "Edit this contact", edit_user_contact_path(params['user_id'], contact)%>

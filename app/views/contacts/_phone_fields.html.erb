@@ -1,0 +1,9 @@
+<p>
+  <%= f.label :number, "Number" %>
+  <%= f.text_field :number %>
+  <%= f.check_box :default_phone %>
+  <%= f.label :default_phone, "Default Phone" %> 
+  <%= link_to_remove_fields "remove", f %>
+</p>
+
+<%= javascript_include_tag "phone_fields" %>

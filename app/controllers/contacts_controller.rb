@@ -14,6 +14,8 @@ class ContactsController < ApplicationController
   def new
     @link = user_contacts_path(params['user_id'])
     @contact = Contact.new
+    4.times { @contact.phones.build } #preciso mudar isso pra adicionar quantos o usuário quiser
+    #n]ao está passando default_phone corretamente
   end
 
   # GET /contacts/1/edit
@@ -72,6 +74,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:name, :born_date, :user_id)
+      params.require(:contact).permit(:name, :born_date, :user_id, phones_attributes: [:number, :default_phone, :id, :_destroy])
     end
 end

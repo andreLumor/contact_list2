@@ -3,8 +3,6 @@
 <%= render @contact %>
 
 <div>
-  <%= link_to "Edit this contact", edit_contact_path(@contact) %> |
-  <%= link_to "Back to contacts", contacts_path %>
+  <%= link_to "Back to contacts", user_contacts_path(params['user_id']) %>
 
-  <%= button_to "Destroy this contact", @contact, method: :delete %>
 </div>
