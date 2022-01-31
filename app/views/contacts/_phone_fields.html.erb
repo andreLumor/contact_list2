@@ -1,0 +1,9 @@
+<p class = "phone_fields">
+  <%= f.label :number, "Number" %>
+  <%= f.text_field :number %>
+  <%= f.label :default_phone, "Default Phone" %> 
+  <%= f.check_box :default_phone, onclick: "uncheck_defaults(id)", :class=>"default-checkbox" %>
+  <%= link_to_remove_fields "remove", f %>
+</p>
+
+<%= javascript_include_tag "phone_fields" %>

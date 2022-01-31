@@ -6,7 +6,7 @@ class Phone < ApplicationRecord
 
   before_save do
     if self.default_phone
-      contact.phones.each do |phone|
+      contact.phones.where.not(id: self.id).each do |phone|
         phone.update! default_phone: false
       end
     end

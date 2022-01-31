@@ -10,8 +10,17 @@
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= contact.user_id %>
+    <strong>Phones:</strong>
+    <% contact.phones.each do |phone| %>
+      <p>
+      <%= phone.number %>
+      default = <%= phone.default_phone %>
+      </p>
+    <% end %>  
   </p>
+
+ 
+
+
 
 </div>
