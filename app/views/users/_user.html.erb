@@ -14,4 +14,14 @@
     <%= user.bio %>
   </p>
 
+  <p>
+      <%= link_to "Show contacts", user_contacts_path(user), data: { turbo: false } %>
+  </p>
+  <p>
+    <%= link_to "Edit this user", edit_user_path(user), data: { turbo: false }%>
+  </p>
+  <p>
+    <%= link_to "Destroy this user", user, method: :delete, remote: true%>
+  </p>
+
 </div>

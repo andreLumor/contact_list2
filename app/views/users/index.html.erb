@@ -1,23 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <div id="<%= user.id%>">
-    <%= render user %>
-    <p>
-      <%= link_to "Show contacts", user_contacts_path(user) %>
-    </p>
-    <p>
-    <%= link_to "Edit this user", edit_user_path(user)%>
-    </p>
-    <p>
-    <%= link_to "Destroy this user", user, method: :delete, remote: true%>
-    </p>
-    </div>
-  <% end %>
-</div>
+<%= turbo_stream_from "users" %>
+<%= turbo_frame_tag "users" do %>
+  <% render @users %>
+<% end %>
 <br>
 <%= link_to "New user", new_user_path %>
 
