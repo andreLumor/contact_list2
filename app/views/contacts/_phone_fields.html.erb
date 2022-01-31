@@ -1,8 +1,8 @@
-<p>
+<p class = "phone_fields">
   <%= f.label :number, "Number" %>
   <%= f.text_field :number %>
-  <%= f.check_box :default_phone %>
   <%= f.label :default_phone, "Default Phone" %> 
+  <%= f.check_box :default_phone, onclick: "uncheck_defaults(id)", :class=>"default-checkbox" %>
   <%= link_to_remove_fields "remove", f %>
 </p>
 
