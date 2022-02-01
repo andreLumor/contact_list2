@@ -1,27 +1,29 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
+<%= turbo_frame_tag dom_id(user) do %>
+  <div class= "user user-body">
+    <p>
+      <strong>Name:</strong>
+      <%= user.name %>
+    </p>
 
-  <p>
-    <strong>Age:</strong>
-    <%= user.age %>
-  </p>
+    <p>
+      <strong>Age:</strong>
+      <%= user.age %>
+    </p>
 
-  <p>
-    <strong>Bio:</strong>
-    <%= user.bio %>
-  </p>
+    <p>
+      <strong>Bio:</strong>
+      <%= user.bio %>
+    </p>
 
-  <p>
-      <%= link_to "Show contacts", user_contacts_path(user), data: { turbo: false } %>
-  </p>
-  <p>
-    <%= link_to "Edit this user", edit_user_path(user), data: { turbo: false }%>
-  </p>
-  <p>
-    <%= link_to "Destroy this user", user, method: :delete, remote: true%>
-  </p>
+    <p>
+        <%= link_to "Show contacts", user_contacts_path(user), data: { turbo: false } %>
+    </p>
+    <p>
+      <%= link_to "Edit this user", edit_user_path(user)%>
+    </p>
+    <p>
+      <%= link_to "Destroy this user", user, method: :delete, remote: true%>
+    </p>
 
-</div>
+  </div>
+<% end %>
