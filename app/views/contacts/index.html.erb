@@ -1,23 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Contacts</h1>
-<div id="contacts">
-  <% @contacts.where(:user_id => params['user_id']).each do |contact| %>
-    <div id="<%= contact.id%>">
-      <%= render contact %>
-      <p>
-        <%= link_to "Show this contact", user_contact_path(params['user_id'], contact) %>
-      </p>
-      <p>
-      <%= link_to "Edit this contact", edit_user_contact_path(params['user_id'], contact)%>
-      </p>
-      <p>
-      <%= link_to "Delete this contact", user_contact_path(:user_id => params['user_id'], :id => contact), method: :delete, remote: true%>
-      </p>
-    </div>
-  <% end %>
-</div>
-<br>
+
 <%= link_to "Back to users", users_path %>
 <br>
-<%= link_to "New contact", new_user_contact_path %>
+<%= link_to "New contact", new_user_contact_path, data: { turbo: false }  %>
+
+<%= turbo_stream_from "contacts" %>
+<%= turbo_frame_tag "contacts" do %>
+  <% render @contacts.where(:user_id => params['user_id']) %>
+<% end %>
+<br>
+
