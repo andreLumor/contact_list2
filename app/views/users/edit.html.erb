@@ -1,6 +1,10 @@
 <h1>Editing user</h1>
 
-<%= render "form", user: @user %>
+<%= turbo_frame_tag dom_id(@user) do %>
+  <div class= "user user-body">
+    <%= render "form", user: @user %>
+  </div>
+<% end %>
 
 <br>
 
