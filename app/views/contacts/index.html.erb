@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Contacts</h1>
-
-<%= link_to "Back to users", users_path %>
-<br>
-<%= link_to "New contact", new_user_contact_path, data: { turbo: false }  %>
-
-<%= turbo_stream_from "contacts" %>
-<%= turbo_frame_tag "contacts" do %>
-  <% render @contacts.where(:user_id => params['user_id']) %>
-<% end %>
-<br>
+<div class="py-16 px-4 md:px-6 2xl:px-0 flex justify-center items-center 2xl:mx-auto 2xl:container">
+  <div class="flex flex-col justify-start items-start w-full space-y-9">
+    <div>
+      <span class="text-md px-6 py-2 rounded-md bg-gray-500 text-indigo-50 font-semibold cursor-pointer hover:bg-green-500" text-indigo-50 font-semibold cursor-pointer>
+        <%= link_to "New contact", new_user_contact_path, data: { turbo: false }  %>
+      </span>
+    </div>
+    <%= turbo_stream_from "contacts" %>
+    <%= turbo_frame_tag "contacts", class: "flex flex-wrap place-content-center" do %>
+      <% render @contacts.where(:user_id => params['user_id']) %>
+    <% end %>
+  </div>
+</div>
 
