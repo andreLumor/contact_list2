@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<h1 class="text-3xl font-bold underline">Users</h1>
 <%= turbo_stream_from "users" %>
 <%= turbo_frame_tag "users" do %>
   <% render @users %>

@@ -33,5 +33,8 @@ module ContactList
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.assets.css_compressor = nil
   end
 end
+
+
