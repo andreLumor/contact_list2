@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-root to: "users#index"
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  root to: "users#index"
   resources :users do
     resources :contacts do
     end
