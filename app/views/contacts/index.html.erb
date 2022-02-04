@@ -7,7 +7,7 @@
     </div>
     <div>
       <%= turbo_stream_from "contacts" %>
-      <%= turbo_frame_tag "contacts", class: "flex flex-wrap place-content-start gap-x-3 gap-y-3" do %>
+      <%= turbo_frame_tag "contacts", class: "flex flex-wrap justify-center place-content-start gap-x-3 gap-y-3" do %>
         <% render @contacts.where(:user_id => params['user_id']) %>
       <% end %>
     </div>
