@@ -5,7 +5,7 @@ ruby "3.1.0"
 gem 'jquery-rails'
 gem 'hotwire-rails'
 gem 'devise'
-
+gem 'redis-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
 
